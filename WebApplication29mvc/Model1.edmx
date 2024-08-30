@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AugustDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="int" Nullable="false" />
+          <Property Name="categoryname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AugustDB.dbo.depart' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="depart">
+          <Property Name="did" Type="int" />
+          <Property Name="dept" Type="varchar" MaxLength="10" />
+          <Property Name="workers" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AugustDB.dbo.department' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="department">
+          <Property Name="did" Type="int" />
+          <Property Name="dept" Type="varchar" MaxLength="10" />
+          <Property Name="workers" Type="int" />
+        </EntityType>-->
+        <EntityType Name="dept2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="deptname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AugustDB.dbo.emp' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="emp">
+          <Property Name="eid" Type="int" />
+          <Property Name="ename" Type="varchar" MaxLength="10" />
+          <Property Name="dept" Type="varchar" MaxLength="10" />
+          <Property Name="salary" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.emp2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deptid" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.emp3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="emp3">
+          <Key>
+            <PropertyRef Name="empid" />
+            <PropertyRef Name="lastname" />
+            <PropertyRef Name="firstname" />
+          </Key>
+          <Property Name="empid" Type="int" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order3">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="int" Nullable="false" />
+          <Property Name="empid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="deptname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="int" Nullable="false" />
+          <Property Name="productname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="categoryid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.Sales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="SalesAmount" />
+          </Key>
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalesAmount" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.salesbyregion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="salesbyregion">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="east" />
+            <PropertyRef Name="west" />
+          </Key>
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="east" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="west" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.signuppage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="signuppage">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="uname" />
+            <PropertyRef Name="pwd" />
+            <PropertyRef Name="cpwd" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pwd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cpwd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.sigup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sigup">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="cpassword" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cpassword" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AugustDB.dbo.stud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="stud">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="course" />
+            <PropertyRef Name="clg" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="course" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="clg" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AugustDB.dbo.tab1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tab1">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="10" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Mark" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tab1N">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="table1">
+          <Key>
+            <PropertyRef Name="prodid" />
+          </Key>
+          <Property Name="prodid" Type="int" Nullable="false" />
+          <Property Name="prodname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="table2">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="addemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="addsig" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="delemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="delsig" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="empadd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectAllEmp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selsig" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_stinsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sna" Type="varchar" Mode="In" />
+          <Parameter Name="sag" Type="int" Mode="In" />
+          <Parameter Name="sadd" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="studadd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="studdel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="studsel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="studupdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="updateemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="upsig" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="AugustDBModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dept2" EntityType="Self.dept2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order3" EntityType="Self.order3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderN" EntityType="Self.orderN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tab1N" EntityType="Self.tab1N" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="table1" EntityType="Self.table1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="table2" EntityType="Self.table2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp2" EntityType="Self.emp2" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [emp2].[id] AS [id], 
+    [emp2].[name] AS [name], 
+    [emp2].[deptid] AS [deptid]
+    FROM [dbo].[emp2] AS [emp2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="emp3" EntityType="Self.emp3" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [emp3].[empid] AS [empid], 
+    [emp3].[lastname] AS [lastname], 
+    [emp3].[firstname] AS [firstname]
+    FROM [dbo].[emp3] AS [emp3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sales" EntityType="Self.Sales" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sales].[Year] AS [Year], 
+    [Sales].[Region] AS [Region], 
+    [Sales].[SalesAmount] AS [SalesAmount]
+    FROM [dbo].[Sales] AS [Sales]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="salesbyregion" EntityType="Self.salesbyregion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [salesbyregion].[year] AS [year], 
+    [salesbyregion].[east] AS [east], 
+    [salesbyregion].[west] AS [west]
+    FROM [dbo].[salesbyregion] AS [salesbyregion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="signuppage" EntityType="Self.signuppage" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [signuppage].[id] AS [id], 
+    [signuppage].[email] AS [email], 
+    [signuppage].[uname] AS [uname], 
+    [signuppage].[pwd] AS [pwd], 
+    [signuppage].[cpwd] AS [cpwd]
+    FROM [dbo].[signuppage] AS [signuppage]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sigup" EntityType="Self.sigup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sigup].[id] AS [id], 
+    [sigup].[name] AS [name], 
+    [sigup].[username] AS [username], 
+    [sigup].[password] AS [password], 
+    [sigup].[cpassword] AS [cpassword]
+    FROM [dbo].[sigup] AS [sigup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="stud" EntityType="Self.stud" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [stud].[id] AS [id], 
+    [stud].[name] AS [name], 
+    [stud].[course] AS [course], 
+    [stud].[clg] AS [clg]
+    FROM [dbo].[stud] AS [stud]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AugustDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="categoryid" />
+          </Key>
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+          <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dept2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="deptname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order3">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <Property Name="empid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="deptname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="Int32" Nullable="false" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="categoryid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tab1N">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="table1">
+          <Key>
+            <PropertyRef Name="prodid" />
+          </Key>
+          <Property Name="prodid" Type="Int32" Nullable="false" />
+          <Property Name="prodname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="table2">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="emp2">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="emp3">
+          <Key>
+            <PropertyRef Name="empid" />
+            <PropertyRef Name="lastname" />
+            <PropertyRef Name="firstname" />
+          </Key>
+          <Property Name="empid" Type="Int32" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Year" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="SalesAmount" />
+          </Key>
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SalesAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="salesbyregion">
+          <Key>
+            <PropertyRef Name="year" />
+            <PropertyRef Name="east" />
+            <PropertyRef Name="west" />
+          </Key>
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="east" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="west" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="signuppage">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="uname" />
+            <PropertyRef Name="pwd" />
+            <PropertyRef Name="cpwd" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sigup">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="cpassword" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stud">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="course" />
+            <PropertyRef Name="clg" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AugustDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="dept2" EntityType="Self.dept2" />
+          <EntitySet Name="order3" EntityType="Self.order3" />
+          <EntitySet Name="orderNs" EntityType="Self.orderN" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="tab1N" EntityType="Self.tab1N" />
+          <EntitySet Name="table1" EntityType="Self.table1" />
+          <EntitySet Name="table2" EntityType="Self.table2" />
+          <EntitySet Name="emp2" EntityType="Self.emp2" />
+          <EntitySet Name="emp3" EntityType="Self.emp3" />
+          <EntitySet Name="Sales" EntityType="Self.Sale" />
+          <EntitySet Name="salesbyregions" EntityType="Self.salesbyregion" />
+          <EntitySet Name="signuppages" EntityType="Self.signuppage" />
+          <EntitySet Name="sigups" EntityType="Self.sigup" />
+          <EntitySet Name="studs" EntityType="Self.stud" />
+          <FunctionImport Name="addemp" />
+          <FunctionImport Name="addsig" />
+          <FunctionImport Name="delemp" />
+          <FunctionImport Name="delsig" />
+          <FunctionImport Name="empadd" />
+          <FunctionImport Name="SelectAllEmp" ReturnType="Collection(AugustDBModel.SelectAllEmp_Result)" />
+          <FunctionImport Name="selemp" ReturnType="Collection(AugustDBModel.selemp_Result)" />
+          <FunctionImport Name="selsig" ReturnType="Collection(AugustDBModel.selsig_Result)" />
+          <FunctionImport Name="sp_stinsert">
+            <Parameter Name="sna" Mode="In" Type="String" />
+            <Parameter Name="sag" Mode="In" Type="Int32" />
+            <Parameter Name="sadd" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="studadd" />
+          <FunctionImport Name="studdel" />
+          <FunctionImport Name="studsel" ReturnType="Collection(AugustDBModel.studsel_Result)" />
+          <FunctionImport Name="studupdate" />
+          <FunctionImport Name="updateemp" />
+          <FunctionImport Name="upsig" />
+        </EntityContainer>
+        <ComplexType Name="SelectAllEmp_Result">
+          <Property Type="Int32" Name="eid" Nullable="true" />
+          <Property Type="String" Name="ename" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dept" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="salary" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selemp_Result">
+          <Property Type="Int32" Name="eid" Nullable="true" />
+          <Property Type="String" Name="ename" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="dept" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="salary" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="selsig_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="uname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="pwd" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="cpwd" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="studsel_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="course" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="clg" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AugustDBModelStoreContainer" CdmEntityContainer="AugustDBEntities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="AugustDBModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="AugustDBModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="city" ColumnName="city" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dept2">
+            <EntityTypeMapping TypeName="AugustDBModel.dept2">
+              <MappingFragment StoreEntitySet="dept2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="deptname" ColumnName="deptname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order3">
+            <EntityTypeMapping TypeName="AugustDBModel.order3">
+              <MappingFragment StoreEntitySet="order3">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderNs">
+            <EntityTypeMapping TypeName="AugustDBModel.orderN">
+              <MappingFragment StoreEntitySet="orderN">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="deptname" ColumnName="deptname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="AugustDBModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tab1N">
+            <EntityTypeMapping TypeName="AugustDBModel.tab1N">
+              <MappingFragment StoreEntitySet="tab1N">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="table1">
+            <EntityTypeMapping TypeName="AugustDBModel.table1">
+              <MappingFragment StoreEntitySet="table1">
+                <ScalarProperty Name="prodid" ColumnName="prodid" />
+                <ScalarProperty Name="prodname" ColumnName="prodname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="table2">
+            <EntityTypeMapping TypeName="AugustDBModel.table2">
+              <MappingFragment StoreEntitySet="table2">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp2">
+            <EntityTypeMapping TypeName="AugustDBModel.emp2">
+              <MappingFragment StoreEntitySet="emp2">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp3">
+            <EntityTypeMapping TypeName="AugustDBModel.emp3">
+              <MappingFragment StoreEntitySet="emp3">
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="AugustDBModel.Sale">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="SalesAmount" ColumnName="SalesAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salesbyregions">
+            <EntityTypeMapping TypeName="AugustDBModel.salesbyregion">
+              <MappingFragment StoreEntitySet="salesbyregion">
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="east" ColumnName="east" />
+                <ScalarProperty Name="west" ColumnName="west" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="signuppages">
+            <EntityTypeMapping TypeName="AugustDBModel.signuppage">
+              <MappingFragment StoreEntitySet="signuppage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="cpwd" ColumnName="cpwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sigups">
+            <EntityTypeMapping TypeName="AugustDBModel.sigup">
+              <MappingFragment StoreEntitySet="sigup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studs">
+            <EntityTypeMapping TypeName="AugustDBModel.stud">
+              <MappingFragment StoreEntitySet="stud">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="clg" ColumnName="clg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addemp" FunctionName="AugustDBModel.Store.addemp" />
+          <FunctionImportMapping FunctionImportName="addsig" FunctionName="AugustDBModel.Store.addsig" />
+          <FunctionImportMapping FunctionImportName="delemp" FunctionName="AugustDBModel.Store.delemp" />
+          <FunctionImportMapping FunctionImportName="delsig" FunctionName="AugustDBModel.Store.delsig" />
+          <FunctionImportMapping FunctionImportName="empadd" FunctionName="AugustDBModel.Store.empadd" />
+          <FunctionImportMapping FunctionImportName="SelectAllEmp" FunctionName="AugustDBModel.Store.SelectAllEmp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AugustDBModel.SelectAllEmp_Result">
+                <ScalarProperty Name="eid" ColumnName="eid" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selemp" FunctionName="AugustDBModel.Store.selemp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AugustDBModel.selemp_Result">
+                <ScalarProperty Name="eid" ColumnName="eid" />
+                <ScalarProperty Name="ename" ColumnName="ename" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selsig" FunctionName="AugustDBModel.Store.selsig">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AugustDBModel.selsig_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="cpwd" ColumnName="cpwd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_stinsert" FunctionName="AugustDBModel.Store.sp_stinsert" />
+          <FunctionImportMapping FunctionImportName="studadd" FunctionName="AugustDBModel.Store.studadd" />
+          <FunctionImportMapping FunctionImportName="studdel" FunctionName="AugustDBModel.Store.studdel" />
+          <FunctionImportMapping FunctionImportName="studsel" FunctionName="AugustDBModel.Store.studsel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AugustDBModel.studsel_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="clg" ColumnName="clg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="studupdate" FunctionName="AugustDBModel.Store.studupdate" />
+          <FunctionImportMapping FunctionImportName="updateemp" FunctionName="AugustDBModel.Store.updateemp" />
+          <FunctionImportMapping FunctionImportName="upsig" FunctionName="AugustDBModel.Store.upsig" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+﻿@model WebApplication29mvc.Models.Class1
+@{
+    ViewBag.Title = "Insert_pageload";
+}
+
+<h2>Student</h2>
+
+<div>
+    @using (Html.BeginForm("Insert_click", "DBinsert", FormMethod.Post))
+    {
+        <div>
+            <label>Name</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.name)
+        </div>
+        <div>
+            <label>Age</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.age)
+        </div>
+        <div>
+            <label>Address</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.address)
+        </div>
+        <div>
+            <input type="submit" value="Insert"/>
+            @Html.DisplayFor(m=>m.msg)
+
+        </div>
+    }
+</div>
